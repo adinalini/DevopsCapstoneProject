@@ -12,7 +12,7 @@ pipeline {
 			steps {
 				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
 					sh '''
-						docker build -t adinalini/DevopsCapstoneProject .
+						docker build -t adinalini/devopscapstoneproject .
 					'''
 				}
 			}
@@ -23,7 +23,7 @@ pipeline {
 				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
 					sh '''
 						docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-						docker push adinalini/DevopsCapstoneProject
+						docker push adinalini/devopscapstoneproject
 					'''
 				}
 			}
@@ -33,7 +33,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-west-2', credentials:'ecr_credentials') {
 					sh '''
-						kubectl config use-context arn:aws:eks:us-west-2:142977788479:cluster/capstonecluster
+						kubectl config use-context 297605572640.dkr.ecr.us-west-2.amazonaws.com/adinalini/devopscapstoneproject:cluster/capstonecluster
 					'''
 				}
 			}

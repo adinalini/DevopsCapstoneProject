@@ -22,7 +22,7 @@
             "containers":[
                {
                   "name":"green",
-                  "image":"adinalini/DevopsCapstoneProject",
+                  "image":"adinalini/devopscapstoneproject",
                   "ports":[
                      {
                         "name":"http-server",
