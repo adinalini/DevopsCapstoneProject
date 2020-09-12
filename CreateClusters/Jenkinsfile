@@ -6,6 +6,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-west-2', credentials:'ecr_credentials') {
 					sh '''
+					eksctl version \
 						eksctl create cluster \
 						--name capstonecluster \
 						--version 1.13 \
