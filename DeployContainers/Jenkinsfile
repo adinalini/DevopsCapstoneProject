@@ -33,7 +33,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-west-2', credentials:'ecr_credentials') {
 					sh '''
-						kubectl config use-context 297605572640.dkr.ecr.us-west-2.amazonaws.com/adinalini/devopscapstoneproject:cluster/capstonecluster
+						kubectl config use-context stack-id
 					'''
 				}
 			}
