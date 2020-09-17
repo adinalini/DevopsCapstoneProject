@@ -30,4 +30,4 @@ I ran into a little too many errors during this project, not the most fun but I 
 
 ## HOW TO REPLICATE THIS PROJECT
 
-Go to Source code folder, there you will find the instructions and screenshots for all stages.
+Go to Sourcecode folder, there you will find the instructions and screenshots for all stages.
