@@ -1,16 +1,17 @@
-pipeline {
-	agent any
-	stages {
+pipeline{
+    agent any
+    stages{
 
-		stage('Create kubernetes cluster') {
+        // Stage 1 Create a Kubernetes Cluster
+        stage('Create kubernetes cluster') {
 			steps {
-				withAWS(region:'us-west-2', credentials:'ecr_credentials') {
+				withAWS(region:'us-west-2', credentials:'aws_credentials') {
 					sh '''
 						eksctl create cluster \
-						--name capstonecluster \
-						--version 1.13 \
+						--name microservicesCluster \
+						--version 1.17 \
 						--nodegroup-name standard-workers \
-						--node-type t2.medium \
+						--node-type t2.small \
 						--nodes 2 \
 						--nodes-min 1 \
 						--nodes-max 3 \
@@ -24,17 +25,17 @@ pipeline {
 			}
 		}
 
-		
-
-		stage('Create conf file cluster') {
+        // Stage 2 Create a Config file
+        stage('Create config file cluster') {
 			steps {
-				withAWS(region:'us-west-2', credentials:'ecr_credentials') {
+				withAWS(region:'us-west-2', credentials:'aws_credentials') {
 					sh '''
-						aws eks --region us-west-2 update-kubeconfig --name capstonecluster
+						aws eks --region us-west-2 update-kubeconfig --name microservicesCluster
 					'''
 				}
 			}
 		}
 
-	}
+
+    }
 }
