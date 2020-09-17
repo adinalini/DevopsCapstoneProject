@@ -1,0 +1,41 @@
+Steps to replicate the project:
+
+1. Set up AWS account.
+
+2. Go to EC2 -> Launch new Instance -> Take any image, preferably Ubuntu -> Increase Volume to 25 -> Create and download Key Pair -> Launch!
+
+3. Go to EC2 -> Security Groups -> Select the one associated with out newly created ec2, and configure it (Screenshot 01).
+
+4. Open terminal, use chmod 400 keypair.pem and ssh into the EC2 instance (Screenshot 02).
+
+5. Setup a virtual environment (You might need to install python3 first).
+
+> python3 -m venv ~/.capstone
+> source ~/.capstone/bin/activate
+
+6. Clone my repo:
+
+   i. First set up ssh keys
+   > ssh-keygen -t rsa
+
+   Use  > cat path_to_pub_printed
+
+   ii. Open github, create new repo and go to settings -> SSH keys and add the contents on the above file.
+
+7. Download the following by looking up their installation tutorial:
+
+    Jenkins
+    Blue Ocean Plugin in Jenkins
+    Pipeline-AWS Plugin in Jenkins
+    Docker
+    Pip
+    AWS Cli
+    Eksctl
+    Kubectl
+
+8. Setup credentials for Docker and AWS on Jenkins, connect with your repo (with all the above files).
+
+9. Now follow the rest of the screenshots and use jenkins to create and deploy the entire project!
+
+Cheers ~
+
