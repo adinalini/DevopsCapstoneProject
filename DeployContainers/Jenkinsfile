@@ -15,7 +15,7 @@ pipeline{
                     sh '''
 						docker pull hadolint/hadolint:latest-debian
 						pwd
-						hadolint --ignore DL3006 ./Dockerfile
+						hadolint --ignore DL3006 Dockerfile
 					'''
                 }
             }
