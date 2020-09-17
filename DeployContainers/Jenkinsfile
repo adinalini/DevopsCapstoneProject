@@ -10,15 +10,15 @@ pipeline{
             }
 
 			// Stage 2 is linting
-            stage('Lint Dockerfile'){
-                steps{
-                    sh '''
-						docker pull hadolint/hadolint:latest-debian
-						pwd
-						hadolint --ignore DL3006 Dockerfile
-					'''
-                }
-            }
+//            stage('Lint Dockerfile'){
+//                steps{
+//                    sh '''
+//						docker pull hadolint/hadolint:latest-debian
+//						pwd
+//						hadolint --ignore DL3006 Dockerfile
+//					'''
+//              }
+//            }
 
             // Stage 3 is building a docker image
             stage('Build Docker Image'){
